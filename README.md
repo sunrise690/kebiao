@@ -1,0 +1,35 @@
+# XMU E-Paper Desk Card Schedule Server
+
+这个仓库用于给 ESP32 墨水屏电子桌牌提供课表 JSON。
+
+默认接口：
+
+```text
+https://sunrise690.github.io/kebiao/schedule.json
+```
+
+如果设置了 GitHub Secret `PUBLIC_PATH`，接口会变成：
+
+```text
+https://sunrise690.github.io/kebiao/<PUBLIC_PATH>/schedule.json
+```
+
+## 文件说明
+
+- `docs/schedule.json`：GitHub Pages 对外提供的课表 JSON。
+- `docs/index.html`：简单状态页。
+- `tools/update_xmu_schedule.mjs`：把厦大教务接口数据转换成 ESP32 易解析 JSON 的脚本。
+- `.github/workflows/update-schedule.yml`：定时更新 JSON 的 GitHub Actions。
+- `GITHUB_PAGES_SERVER.md`：完整配置步骤。
+
+## 必填设置
+
+在 GitHub 仓库里进入 `Settings > Secrets and variables > Actions`，添加：
+
+```text
+XMU_COOKIE
+```
+
+这个值来自登录厦大教务系统后的请求头 `Cookie:`。不要把 Cookie 写进仓库文件。
+
+更多步骤见 `GITHUB_PAGES_SERVER.md`。
