@@ -1,0 +1,49 @@
+{
+  "schema": "xmu-desk-card/v1",
+  "status": "demo",
+  "source": "xmu-wdkbapp",
+  "term": "20253",
+  "week": 1,
+  "updatedAt": "2026-07-07T02:03:08.677Z",
+  "timeZone": "Asia/Shanghai",
+  "todayDate": "2026-07-07",
+  "courses": [
+    {
+      "name": "电子设计与工艺实训A",
+      "className": "03",
+      "teacher": "",
+      "room": "新工科大楼303",
+      "campus": "",
+      "weekday": 2,
+      "weekdayName": "周二",
+      "start": "14:30",
+      "end": "17:05",
+      "section": "5-7",
+      "weeks": "1-3周",
+      "note": "示例数据，等待 GitHub Actions 更新"
+    }
+  ],
+  "today": [
+    {
+      "name": "电子设计与工艺实训A",
+      "className": "03",
+      "teacher": "",
+      "room": "新工科大楼303",
+      "campus": "",
+      "weekday": 2,
+      "weekdayName": "周二",
+      "start": "14:30",
+      "end": "17:05",
+      "section": "5-7",
+      "weeks": "1-3周",
+      "note": "示例数据，等待 GitHub Actions 更新"
+    }
+  ],
+  "next": {
+    "name": "电子设计与工艺实训A",
+    "room": "新工科大楼303",
+    "start": "14:30",
+    "end": "17:05",
+    "weekdayName": "周二"
+  }
+}
