@@ -139,6 +139,10 @@ function normalizePayload(raw, status = "ok") {
   return {
     schema: "xmu-desk-card/v1",
     status,
+    // An authenticated, successfully parsed response may legitimately contain
+    // no courses. Firmware requires this explicit acknowledgement before it
+    // replaces a non-empty local cache with an empty list.
+    allow_empty: status === "ok",
     source: "xmu-wdkbapp",
     term,
     week: toInt(week, 1),

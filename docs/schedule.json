@@ -1,49 +1,106 @@
 {
   "schema": "xmu-desk-card/v1",
-  "status": "demo",
+  "status": "ok",
+  "allow_empty": true,
   "source": "xmu-wdkbapp",
   "term": "20253",
-  "week": 1,
-  "updatedAt": "2026-07-07T02:03:08.677Z",
+  "week": 2,
+  "updatedAt": "2026-07-15T16:23:41.313Z",
   "timeZone": "Asia/Shanghai",
-  "todayDate": "2026-07-07",
+  "todayDate": "2026-07-16",
   "courses": [
     {
-      "name": "电子设计与工艺实训A",
+      "name": "电子设计与工艺实训A(03)",
       "className": "03",
-      "teacher": "",
+      "teacher": "钟金水",
+      "room": "南存钿楼C102",
+      "campus": "",
+      "weekday": 1,
+      "weekdayName": "周一",
+      "start": "08:55",
+      "end": "17:25",
+      "section": "2-7",
+      "weeks": "1-3周",
+      "note": ""
+    },
+    {
+      "name": "电子设计与工艺实训A(03)",
+      "className": "03",
+      "teacher": "钟金水",
       "room": "新工科大楼303",
       "campus": "",
       "weekday": 2,
       "weekdayName": "周二",
-      "start": "14:30",
-      "end": "17:05",
-      "section": "5-7",
+      "start": "08:55",
+      "end": "17:25",
+      "section": "2-7",
       "weeks": "1-3周",
-      "note": "示例数据，等待 GitHub Actions 更新"
+      "note": ""
+    },
+    {
+      "name": "电子设计与工艺实训A(03)",
+      "className": "03",
+      "teacher": "钟金水,林和志,陈华宾",
+      "room": "南存钿楼C102",
+      "campus": "",
+      "weekday": 4,
+      "weekdayName": "周四",
+      "start": "08:00",
+      "end": "11:50",
+      "section": "1-4",
+      "weeks": "1-3周",
+      "note": ""
+    },
+    {
+      "name": "电子设计与工艺实训A(03)",
+      "className": "03",
+      "teacher": "钟金水",
+      "room": "新工科大楼303",
+      "campus": "",
+      "weekday": 4,
+      "weekdayName": "周四",
+      "start": "14:30",
+      "end": "18:20",
+      "section": "5-8",
+      "weeks": "1-3周",
+      "note": ""
     }
   ],
   "today": [
     {
-      "name": "电子设计与工艺实训A",
+      "name": "电子设计与工艺实训A(03)",
       "className": "03",
-      "teacher": "",
+      "teacher": "钟金水,林和志,陈华宾",
+      "room": "南存钿楼C102",
+      "campus": "",
+      "weekday": 4,
+      "weekdayName": "周四",
+      "start": "08:00",
+      "end": "11:50",
+      "section": "1-4",
+      "weeks": "1-3周",
+      "note": ""
+    },
+    {
+      "name": "电子设计与工艺实训A(03)",
+      "className": "03",
+      "teacher": "钟金水",
       "room": "新工科大楼303",
       "campus": "",
-      "weekday": 2,
-      "weekdayName": "周二",
+      "weekday": 4,
+      "weekdayName": "周四",
       "start": "14:30",
-      "end": "17:05",
-      "section": "5-7",
+      "end": "18:20",
+      "section": "5-8",
       "weeks": "1-3周",
-      "note": "示例数据，等待 GitHub Actions 更新"
+      "note": ""
     }
   ],
   "next": {
-    "name": "电子设计与工艺实训A",
-    "room": "新工科大楼303",
-    "start": "14:30",
-    "end": "17:05",
-    "weekdayName": "周二"
+    "name": "电子设计与工艺实训A(03)",
+    "room": "南存钿楼C102",
+    "start": "08:00",
+    "end": "11:50",
+    "weekdayName": "周四"
   }
 }
