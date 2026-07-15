@@ -1,0 +1,14 @@
+{
+  "schema": "xmu-desk-card/terms-v1",
+  "status": "ok",
+  "currentTerm": "20253",
+  "updatedAt": "2026-07-15T16:23:41.313Z",
+  "terms": [
+    {
+      "term": "20253",
+      "updatedAt": "2026-07-15T16:23:41.313Z",
+      "courseCount": 4,
+      "url": "terms/20253/schedule.json"
+    }
+  ]
+}

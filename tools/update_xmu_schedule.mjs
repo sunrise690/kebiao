@@ -12,6 +12,9 @@ const publicPath = sanitizePath(process.env.PUBLIC_PATH || "");
 const requireCookie = process.env.REQUIRE_XMU_COOKIE === "1";
 const outDir = path.join("docs", publicPath);
 const outFile = path.join(outDir, "schedule.json");
+const termsDir = path.join(outDir, "terms");
+const termFile = path.join(termsDir, term, "schedule.json");
+const termsIndexFile = path.join(termsDir, "index.json");
 
 function sanitizePath(value) {
   return value
@@ -217,10 +220,44 @@ async function loadPayload() {
   return { raw: sampleRawPayload(), status: "demo" };
 }
 
+async function updateTermsIndex(output) {
+  let previousTerms = [];
+  try {
+    const previous = JSON.parse(await readFile(termsIndexFile, "utf8"));
+    if (Array.isArray(previous.terms)) previousTerms = previous.terms;
+  } catch {
+    // The index is created on the first successful update.
+  }
+
+  const entry = {
+    term: output.term,
+    updatedAt: output.updatedAt,
+    courseCount: output.courses.length,
+    url: `terms/${output.term}/schedule.json`
+  };
+  const terms = [entry, ...previousTerms.filter((item) => item?.term !== output.term)]
+    .sort((left, right) => String(right.term).localeCompare(String(left.term)));
+  const index = {
+    schema: "xmu-desk-card/terms-v1",
+    status: output.status,
+    currentTerm: output.term,
+    updatedAt: output.updatedAt,
+    terms
+  };
+  await mkdir(termsDir, { recursive: true });
+  await writeFile(termsIndexFile, `${JSON.stringify(index, null, 2)}\n`, "utf8");
+}
+
 const { raw, status } = await loadPayload();
 const output = normalizePayload(raw, status);
 await mkdir(outDir, { recursive: true });
-await writeFile(outFile, `${JSON.stringify(output, null, 2)}\n`, "utf8");
+await mkdir(path.dirname(termFile), { recursive: true });
+const serialized = `${JSON.stringify(output, null, 2)}\n`;
+await writeFile(outFile, serialized, "utf8");
+await writeFile(termFile, serialized, "utf8");
+await updateTermsIndex(output);
 
 console.log(`Wrote ${outFile}`);
+console.log(`Wrote ${termFile}`);
+console.log(`Wrote ${termsIndexFile}`);
 console.log(`status=${output.status} term=${output.term} week=${output.week} courses=${output.courses.length}`);

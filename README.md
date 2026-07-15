@@ -19,6 +19,8 @@ https://sunrise690.github.io/kebiao/<PUBLIC_PATH>/schedule.json
 ## 文件说明
 
 - `docs/schedule.json`：GitHub Pages 对外提供的课表 JSON。
+- `docs/terms/index.json`：可选择的学期索引。
+- `docs/terms/<学期>/schedule.json`：各学期独立保存的课表；例如 `terms/20253/schedule.json`。
 - `docs/index.html`：简单状态页。
 - `tools/update_xmu_schedule.mjs`：把厦大教务接口数据转换成 ESP32 易解析 JSON 的脚本。
 - `.github/workflows/update-schedule.yml`：定时更新 JSON 的 GitHub Actions。
@@ -36,7 +38,9 @@ XMU_COOKIE
 
 更多步骤见 `GITHUB_PAGES_SERVER.md`。
 
-## 豆包大模型仿真接入
+每次更新会同时写入兼容地址 `schedule.json`、当前学期目录及学期索引。切换 `XMU_TERM` 后，旧学期目录会保留，不会被新学期覆盖。
+
+## 豆包接入说明
 
 固件已预留火山方舟 OpenAI 兼容接口：
 
@@ -44,11 +48,6 @@ XMU_COOKIE
 https://ark.cn-beijing.volces.com/api/v3/chat/completions
 ```
 
-不要把 API Key 写进仓库。需要测试时在 `platformio.ini` 的 `build_flags` 本地临时加入：
-
-```ini
--DDOUBAO_API_KEY=\"你的火山方舟API Key\"
--DDOUBAO_MODEL_ID=\"你的模型ID或接入点ID\"
-```
-
-串口输入 `ai:你好` 或 `doubao:你好` 会尝试调用豆包；未配置密钥时会显示本地回显并在状态页提示 `AI未配置`。
+不要把 API Key 写进本仓库。4.2 寸 XiaoZhi 固件通过
+`self.deskcard.set_doubao_config` 将 Key 保存到设备 NVS；状态接口不会返回 Key。
+量产或对外部署时应改用服务器代理，避免设备固件被读取后泄露凭据。
